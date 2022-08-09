@@ -4,7 +4,7 @@ public class Digit {
     private  int digit_length;
     private boolean is_roman = false;
     private String str_digit = "";
-
+    /*----------------------------------------------------------------------------------------------------------------*/
     Digit(){
         digit = 0;
         is_roman = false;
@@ -19,6 +19,7 @@ public class Digit {
         this.digit = digit;
         this.is_roman = is_roman;
     }
+    /*----------------------------------------------------------------------------------------------------------------*/
 
     public String GetStrDigit() {return  this.str_digit;}
     public int GetDigit() {
@@ -31,6 +32,9 @@ public class Digit {
     public void SetDigit(int digit) {
         this.digit = digit;
     }
+
+    /*----------------------------------------------------------------------------------------------------------------*/
+
     public void SetIsRoman(boolean is_roman) {
         this.is_roman = is_roman;
     }
@@ -38,7 +42,7 @@ public class Digit {
 
     public void SetDigLength(int digit_length) {this.digit_length = digit_length;}
 
-
+    /*----------------------------------------------------------------------------------------------------------------*/
     static public Digit ConvertFromStr(String input) throws DigitExeption, StringExeption {
         Digit result = new Digit();
         RomanDigits[] roman_digits = RomanDigits.values();
@@ -78,10 +82,10 @@ public class Digit {
         return result;
     }
 
+    /*----------------------------------------------------------------------------------------------------------------*/
     public void ConvertFromRomanToStr() {// конвентирование десятичного числа в римское
         RomanDigits[] roman_digits = RomanDigits.values();
         int roman_digits_length = roman_digits.length-1;
-        int buffer = 0;
 
         while (this.digit > 0){ // формировать будем через вычитание максимальных значений roman_digits[roman_digits_length].GetDigit() из числа this.digit
             while (roman_digits[roman_digits_length].GetDigit() > this.digit) {
